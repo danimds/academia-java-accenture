@@ -1,19 +1,19 @@
 package time5.entidades;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Funcionario extends Pessoa {
 
 	private String cargo;
 	private double salario;
-	private Date dataNascimento;
+	private String dataNascimento;
 	private Endereco endereco;
 
 	public Funcionario() {
 	}
 
 	public Funcionario(int id, String nome, String cpf, String telefone, String cargo,
-			double salario,Date dataNascimento, Endereco endereco) {
+			double salario,String dataNascimento, Endereco endereco) {
 		super(id, nome, cpf, telefone);
 		this.cargo = cargo;
 		this.salario = salario;
@@ -37,12 +37,12 @@ public class Funcionario extends Pessoa {
 		this.salario = salario;
 	}
 
-	public Date getDataNascimento() {
+	public String getDataNascimento() {
 		return dataNascimento;
 	}
 	
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setDataNascimento(String data) {
+		this.dataNascimento = data;
 	}
 	
 	public Endereco getEndereco() {

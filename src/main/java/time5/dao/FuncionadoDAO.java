@@ -1,6 +1,7 @@
 package time5.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,7 +24,7 @@ public class FuncionadoDAO implements InterfaceCrudDAO<Funcionario> {
 		Connection conexao = null;
 		try {
 			conexao = this.conexaoJDBC.getConexao();
-			String sql = "INSERT INTO tb_funcionario (idFuncionario,nome,cpf,telefone,cargo,salario,dataNascimento,rua,numero,cep,estado,complemento,bairro,cidade,pontoReferencia) "
+			String sql = "INSERT INTO tb_funcionario (id,nome,cpf,telefone,cargo,salario,dataNascimento,rua,numero,cep,estado,complemento,bairro,cidade,pontoReferencia) "
 					+ "VALUES (idFuncionario.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement prepareStatement = conexao.prepareStatement(sql);
 
@@ -32,7 +33,7 @@ public class FuncionadoDAO implements InterfaceCrudDAO<Funcionario> {
 			prepareStatement.setString(3, obj.getTelefone());
 			prepareStatement.setString(4, obj.getCargo());
 			prepareStatement.setDouble(5, obj.getSalario());
-			prepareStatement.setDate(6, obj.getDataNascimento());
+			prepareStatement.setString(6, obj.getDataNascimento());
 			prepareStatement.setString(7, obj.getEndereco().getRua());
 			prepareStatement.setString(8, obj.getEndereco().getNumero());
 			prepareStatement.setString(9, obj.getEndereco().getCep());
@@ -70,7 +71,7 @@ public class FuncionadoDAO implements InterfaceCrudDAO<Funcionario> {
 			prepareStatement.setString(3, obj.getTelefone());
 			prepareStatement.setString(4, obj.getCargo());
 			prepareStatement.setDouble(5, obj.getSalario());
-			prepareStatement.setDate(6, obj.getDataNascimento());
+			prepareStatement.setString(6, obj.getDataNascimento());
 			prepareStatement.setString(7, obj.getEndereco().getRua());
 			prepareStatement.setString(8, obj.getEndereco().getNumero());
 			prepareStatement.setString(9, obj.getEndereco().getCep());
@@ -99,7 +100,7 @@ public class FuncionadoDAO implements InterfaceCrudDAO<Funcionario> {
 		Connection conexao = null;
 		try {
 			conexao = this.conexaoJDBC.getConexao();
-			String sql = "DELETE FROM tb_funcionario WHERE idFuncionario = ?";
+			String sql = "DELETE FROM tb_funcionario WHERE id = ?";
 			PreparedStatement prepareStatement = conexao.prepareStatement(sql);
 
 			prepareStatement.setInt(1, id);
@@ -132,7 +133,7 @@ public class FuncionadoDAO implements InterfaceCrudDAO<Funcionario> {
 					funcionario.setTelefone(resultSet.getString("telefone"));
 					funcionario.setCargo(resultSet.getString("cargo"));
 					funcionario.setSalario(resultSet.getDouble("salario"));
-					funcionario.setDataNascimento(resultSet.getDate("dataNascimento"));
+					funcionario.setDataNascimento(resultSet.getString("dataNascimento"));
 
 					Endereco endereco = new Endereco();
 					endereco.setRua(resultSet.getString("rua"));
@@ -167,7 +168,7 @@ public class FuncionadoDAO implements InterfaceCrudDAO<Funcionario> {
 		Funcionario funcionario = null;
 		ResultSet resultSet = null;
 		try {
-			resultSet = this.query(" WHERE idFuncionario = " + id);
+			resultSet = this.query(" WHERE id = " + id);
 
 			if (resultSet.first()) {
 				funcionario = new Funcionario();
@@ -177,7 +178,7 @@ public class FuncionadoDAO implements InterfaceCrudDAO<Funcionario> {
 				funcionario.setTelefone(resultSet.getString("telefone"));
 				funcionario.setCargo(resultSet.getString("cargo"));
 				funcionario.setSalario(resultSet.getDouble("salario"));
-				funcionario.setDataNascimento(resultSet.getDate("dataNascimento"));
+				funcionario.setDataNascimento(resultSet.getString("dataNascimento"));
 
 				Endereco endereco = new Endereco();
 				endereco.setRua(resultSet.getString("rua"));

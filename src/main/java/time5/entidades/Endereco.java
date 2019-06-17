@@ -14,7 +14,7 @@ public class Endereco {
 	public Endereco() {
 	}
 
-	public Endereco(int idEndereco, String rua, String numero, String cep, String estado, String complemento,
+	public Endereco(String rua, String numero, String cep, String estado, String complemento,
 			String bairro, String cidade, String pontoReferencia) {
 		this.rua = rua;
 		this.numero = numero;

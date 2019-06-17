@@ -49,7 +49,7 @@ public class MenuPrincipal extends JFrame {
 		panel.setLayout(new GridLayout(2, 2, 0, 0));
 		
 		JButton btnNewButton = new JButton("Produtos");
-		btnNewButton.setBackground(new Color(240, 255, 240));
+		btnNewButton.setBackground(new Color(102, 205, 170));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ProdutoListTela listTela = new ProdutoListTela();
@@ -61,19 +61,23 @@ public class MenuPrincipal extends JFrame {
 		panel.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Pedidos");
-		btnNewButton_1.setBackground(new Color(255, 222, 173));
+		btnNewButton_1.setBackground(new Color(255, 248, 220));
 		panel.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Funcion\u00E1rios");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				FuncionarioListTela funcionarioListTela = new FuncionarioListTela();
+				funcionarioListTela.setVisible(true);
+				
+				setVisible(false);
 			}
 		});
 		btnNewButton_2.setBackground(new Color(224, 255, 255));
 		panel.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Sair");
-		btnNewButton_3.setBackground(new Color(255, 192, 203));
+		btnNewButton_3.setBackground(new Color(240, 128, 128));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);

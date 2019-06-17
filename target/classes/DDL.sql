@@ -7,7 +7,6 @@ CREATE TABLE tb_pedido (
 CREATE SEQUENCE idPedido MINVALUE 1 START WITH 1;
 
 
-
 CREATE TABLE tb_produto (
     idProduto INT PRIMARY KEY,
     nomeProduto VARCHAR(50) NOT NULL,
@@ -18,7 +17,6 @@ CREATE TABLE tb_produto (
 CREATE SEQUENCE idProduto MINVALUE 1 START WITH 1;
 
 
-
 CREATE TABLE tb_funcionario (
 	id INT PRIMARY KEY,
 	nome VARCHAR(50) NOT NULL,
@@ -26,7 +24,7 @@ CREATE TABLE tb_funcionario (
 	telefone VARCHAR(12),
 	cargo VARCHAR(50),
 	salario NUMBER,
-	dataNascimento DATE,
+	dataNascimento VARCHAR(50),
 	rua VARCHAR(50),
 	numero NUMBER,
 	cep VARCHAR(50),

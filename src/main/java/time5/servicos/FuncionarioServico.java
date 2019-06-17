@@ -1,6 +1,7 @@
 package time5.servicos;
 
-import java.sql.Date;
+
+import java.util.Date;
 import java.util.List;
 
 import time5.dao.FuncionadoDAO;
@@ -19,20 +20,20 @@ public class FuncionarioServico {
 	}
 	
 	public void cadastrarFuncionario(String nome, String cpf, String telefone, String cargo,
-			double salario,Date dataNascimento, Endereco endereco) {
+			double salario, String data, Endereco endereco) {
 		Funcionario p = new Funcionario();
 		p.setNome(nome);
 		p.setCpf(cpf);
 		p.setTelefone(telefone);
 		p.setCargo(cargo);
 		p.setSalario(salario);
-		p.setDataNascimento(dataNascimento);
+		p.setDataNascimento(data);
 		p.setEndereco(endereco);
 		dao.insert(p);
 	}
      
 	public void atualizarFuncionario(int id, String nome, String cpf, String telefone, String cargo,
-			double salario,Date dataNascimento, Endereco endereco) {
+			double salario,String dataNascimento, Endereco endereco) {
 		Funcionario p = new Funcionario();
 		p.setId(id);
 		p.setNome(nome);
